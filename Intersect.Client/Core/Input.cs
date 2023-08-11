@@ -115,6 +115,7 @@ namespace Intersect.Client.Core
                 return;
             }
 
+
             Controls.Controls.GetControlsFor(modifier, key)
                 ?.ForEach(
                     control =>
@@ -126,6 +127,15 @@ namespace Intersect.Client.Core
 
                         if (IsModifier(key))
                         {
+                            if (
+                                Globals.Me != default && 
+                                Globals.GameState == GameStates.InGame && 
+                                control == Control.ToggleRunning 
+                            )
+                            {
+                                PacketSender.SendRunningPacket();
+                                Globals.Me.IsRunning = !Globals.Me.IsRunning;
+                            }
                             return;
                         }
 
@@ -254,6 +264,12 @@ namespace Intersect.Client.Core
                                     case Control.OpenGuild:
                                         Interface.Interface.GameUi?.GameMenu.ToggleGuildWindow();
 
+                                        break;
+
+                                    case Control.ToggleRunning:
+                                        if (Globals.Me == default) return;
+                                        PacketSender.SendRunningPacket();
+                                        Globals.Me.IsRunning = !Globals.Me.IsRunning;
                                         break;
                                 }
 

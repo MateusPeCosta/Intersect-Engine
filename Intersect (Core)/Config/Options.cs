@@ -118,6 +118,9 @@ namespace Intersect
 
         public static int TradeRange => Instance.PlayerOpts.TradeRange;
 
+        //Custom Change
+        public static int RunningSpeedPercent => Instance.PlayerOpts.RunningSpeedPercent;
+
         public static int WeaponIndex => Instance.EquipmentOpts.WeaponSlot;
 
         public static int ShieldIndex => Instance.EquipmentOpts.ShieldSlot;

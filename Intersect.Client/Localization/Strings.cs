@@ -718,6 +718,9 @@ namespace Intersect.Client.Localization
                 {"openadminpanel", @"Open Admin Panel:"},
                 {"togglegui", @"Toggle Interface:"},
                 {"turnaround", @"Hold to turn around:"},
+
+                //Custom Change
+                {"togglerunning", @"Toggle Running state:"},
             };
 
             public static LocalizedString listening = @"Listening";

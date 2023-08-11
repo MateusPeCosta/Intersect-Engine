@@ -88,6 +88,9 @@ namespace Intersect.Client.Core.Controls
             CreateControlMap(Control.OpenAdminPanel, new ControlValue(Keys.None, Keys.Insert), ControlValue.Default);
             CreateControlMap(Control.ToggleGui, new ControlValue(Keys.None, Keys.F11), ControlValue.Default);
             CreateControlMap(Control.TurnAround, new ControlValue(Keys.None, Keys.Control), ControlValue.Default);
+
+            //Custom Change
+            CreateControlMap(Control.ToggleRunning, new ControlValue(Keys.None, Keys.Shift), ControlValue.Default);
         }
 
         private static void MigrateControlBindings(Control control)
@@ -158,6 +161,12 @@ namespace Intersect.Client.Core.Controls
             if (!(ActiveControls?.ControlMapping.ContainsKey(control) ?? false))
             {
                 return false;
+            }
+
+            //Custom Change
+            if(key == Keys.Shift && modifier == Keys.Shift)
+            {
+                modifier = Keys.None;
             }
 
             var mapping = ActiveControls.ControlMapping[control];

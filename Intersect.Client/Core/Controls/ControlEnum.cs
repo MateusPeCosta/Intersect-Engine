@@ -1,4 +1,4 @@
-﻿namespace Intersect.Client.Core.Controls
+namespace Intersect.Client.Core.Controls
 {
 
     public enum Control
@@ -69,6 +69,9 @@
         ToggleGui,
         
         TurnAround,
+
+        //CustomChange
+        ToggleRunning,
 
     }
 

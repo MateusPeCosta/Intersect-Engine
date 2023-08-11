@@ -534,6 +534,12 @@ namespace Intersect.Client.Entities
                 time += time * Options.BlockingSlow;
             }
 
+            //Custom Change
+            if (IsRunning)
+            {
+                time -= time * Math.Max(0, Options.RunningSpeedPercent) / 100f;
+            }
+
             return Math.Min(1000f, time);
         }
 

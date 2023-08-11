@@ -939,6 +939,11 @@ namespace Intersect.Server.Entities
                 time += time * Options.BlockingSlow;
             }
 
+            if (IsRunning)
+            {
+                time -= time * Math.Max(0, Options.RunningSpeedPercent) / 100f;
+            }
+
             return Math.Min(1000f, time);
         }
 
