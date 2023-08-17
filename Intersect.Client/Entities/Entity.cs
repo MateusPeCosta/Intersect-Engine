@@ -328,6 +328,10 @@ namespace Intersect.Client.Entities
                         return Options.Instance.Sprites.CastFrames;
                     case SpriteAnimations.Weapon:
                         return Options.Instance.Sprites.WeaponFrames;
+
+                    //CustomChange
+                    case SpriteAnimations.Running:
+                        return Options.Instance.Sprites.RunningFrames;
                 }
 
                 return Options.Instance.Sprites.NormalFrames;
@@ -1131,7 +1135,7 @@ namespace Intersect.Client.Entities
             {
                 frame = AnimationFrame;
             }
-            else if (SpriteAnimation == SpriteAnimations.Normal)
+            else if (SpriteAnimation == SpriteAnimations.Normal || SpriteAnimation == SpriteAnimations.Running)
             {
                 frame = NormalSpriteAnimationFrame;
             }
@@ -1376,6 +1380,8 @@ namespace Intersect.Client.Entities
 
             // Calculate: source and destination rectangles.
             var frame = SpriteFrame;
+
+            //CustomChange
             if (SpriteAnimation == SpriteAnimations.Normal)
             {
                 frame = NormalSpriteAnimationFrame;
@@ -1928,7 +1934,8 @@ namespace Intersect.Client.Entities
 
             if (IsMoving && !IsAttacking && isNotBlockingAndCasting)
             {
-                SpriteAnimation = SpriteAnimations.Normal;
+                //CustomChange
+                SpriteAnimation = !IsRunning ? SpriteAnimations.Normal : SpriteAnimations.Running;
                 LastActionTime = timingMilliseconds;
             }
 
@@ -1990,6 +1997,9 @@ namespace Intersect.Client.Entities
                     case SpriteAnimations.Cast:
                     case SpriteAnimations.Idle:
                     case SpriteAnimations.Normal:
+
+                    //CustomChange
+                    case SpriteAnimations.Running:
                         break;
                     case SpriteAnimations.Attack:
                     case SpriteAnimations.Shoot:
@@ -2030,7 +2040,7 @@ namespace Intersect.Client.Entities
                 LastActionTime = timingMilliseconds;
             }
 
-            if (SpriteAnimation == SpriteAnimations.Normal)
+            if (SpriteAnimation == SpriteAnimations.Normal )
             {
                 ResetSpriteFrame();
             }
@@ -2082,6 +2092,10 @@ namespace Intersect.Client.Entities
                 case SpriteAnimations.Normal: break;
 
                 case SpriteAnimations.Idle: break;
+
+                //CustomChange
+                case SpriteAnimations.Running: break;
+
                 case SpriteAnimations.Attack:
                     if (this is Player player && ClassBase.TryGet(player.Class, out var classDescriptor))
                     {
