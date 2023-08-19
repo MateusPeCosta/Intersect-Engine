@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Threading;
 
@@ -191,6 +191,12 @@ namespace Intersect.Editor.General
                     return "Magic Resist";
                 case (int) Stat.Speed:
                     return "Speed";
+
+                //CustomChange
+                case (int)Stat.Accuracy:
+                    return "Accuracy";
+                case (int)Stat.Evasion:
+                    return "Evasion";
                 default:
                     return "Invalid Stat";
             }

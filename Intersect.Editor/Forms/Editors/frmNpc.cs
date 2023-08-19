@@ -124,6 +124,9 @@ namespace Intersect.Editor.Forms.Editors
             nudSpd.Maximum = Options.MaxStatValue;
             InitLocalization();
             UpdateEditor();
+
+            //CustomChange
+            ExtraFrmLoad();
         }
 
         private void InitLocalization()
@@ -255,6 +258,9 @@ namespace Intersect.Editor.Forms.Editors
 
             btnSave.Text = Strings.NpcEditor.save;
             btnCancel.Text = Strings.NpcEditor.cancel;
+
+            //CustomChange
+            InitExtraLocalization();
         }
 
         private void UpdateEditor()
@@ -372,6 +378,10 @@ namespace Intersect.Editor.Forms.Editors
                 nudTenacity.Value = (decimal) mEditorItem.Tenacity;
 
                 UpdateImmunities();
+
+
+                //Custom
+                UpdateExtraEditor();
             }
             else
             {
@@ -1105,6 +1115,7 @@ namespace Intersect.Editor.Forms.Editors
         {
             mEditorItem.Tenacity = (double)nudTenacity.Value;
         }
+
     }
 
 }

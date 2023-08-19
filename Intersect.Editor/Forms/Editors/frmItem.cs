@@ -166,6 +166,9 @@ namespace Intersect.Editor.Forms.Editors
 
             InitLocalization();
             UpdateEditor();
+
+            //CustomChange
+            ExtraFrmLoad();
         }
 
         private void InitLocalization()
@@ -313,6 +316,9 @@ namespace Intersect.Editor.Forms.Editors
             btnCancel.Text = Strings.ItemEditor.cancel;
 
             grpEffects.Text = Strings.ItemEditor.BonusEffectGroup;
+
+            //CustomChange
+            InitExtraLocalization();
         }
 
         private void UpdateEditor()
@@ -435,6 +441,10 @@ namespace Intersect.Editor.Forms.Editors
                     mChanged.Add(mEditorItem);
                     mEditorItem.MakeBackup();
                 }
+
+                //CustomChange
+                UpdateExtraEditor();
+
             }
             else
             {
@@ -1354,6 +1364,7 @@ namespace Intersect.Editor.Forms.Editors
             nudEffectPercent.Value = mEditorItem.GetEffectPercentage(selected);
             EffectValueUpdating = false;
         }
+
     }
 
 }

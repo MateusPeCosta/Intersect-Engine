@@ -12,6 +12,11 @@ namespace Intersect.Enums
 
         Speed,
 
+        //CustomChange
+        Accuracy,
+
+        Evasion,
+
         StatCount
     }
 }

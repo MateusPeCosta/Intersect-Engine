@@ -1252,6 +1252,10 @@ Tick timer saved in server config.json.";
                 {2, @"Defense"},
                 {3, @"Magic Resist"},
                 {4, @"Speed"},
+
+                //CustomChange
+                {(int) Stat.Accuracy, @"Accuracy"},
+                {(int) Stat.Evasion, @"Evasion"},
             };
 
             public static Dictionary<int, LocalizedString> vitals = new Dictionary<int, LocalizedString>
